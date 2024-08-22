@@ -40,8 +40,9 @@ public class DatabaseUtils {
     }
 
     public static void insertBlogPost(int userId, String title, String content) {
-        String shard = ShardUtils.getShard(userId);
-        String postId = UniqueIDGenerator.generateUniqueId();
+        //String shard = ShardUtils.getShard(userId);
+        String shard = "shard1";
+        String postId = String.valueOf(UniqueIDGenerator.getNextId());
 
         String sql = "INSERT INTO BlogPosts (post_id, user_id, title, content, created_at) VALUES (?, ?, ?, ?, ?)";
 
